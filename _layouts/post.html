@@ -90,7 +90,7 @@
 
 if(!$.cookie('badget-twt'))
 {
-	url = 'http://199.19.225.142/proxy/twt.php';
+	url = 'http://zackr.info/proxy/twt.php';
 	$.getJSON(url+"?callback=?", function(data){
 		f_count = data['followers_count'];
 		$('#twt').find('.info').text(f_count);
@@ -106,7 +106,7 @@ else
 
 if(!$.cookie('badget-github'))
 {
-	url = 'http://leezhong.com/util/proxy/github.php';
+	url = 'http://zackr.info/util/proxy/github.php';
 	$.getJSON(url+"?callback=?", function(data){
 		var text = data['user']['public_repo_count'] + ' / ' + data['user']['followers_count'];
 		$('#github').find('.info').text(text);
@@ -120,7 +120,7 @@ else
 
 if(!$.cookie('badget-feedburner'))
 {
-	url = 'http://leezhong.com/util/proxy/feedburner.php';
+	url = 'http://zackr.info/util/proxy/feedburner.php';
 	$.getJSON(url+"?callback=?", function(data){
 		$('#feedburner').find('.info').text(data['count']);
 		$.cookie('badget-feedburner', data['count'], {expires: 7} );
