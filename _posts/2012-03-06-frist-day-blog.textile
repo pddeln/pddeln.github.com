@@ -1,0 +1,39 @@
+---
+layout: post
+title: 经历N次，今日重新开博~
+category: tech
+---
+
+p(date). 2012-03-06
+
+今天是2012年3月6日16点整，这是我的第N个博客，至于前几个不知道是什么原因慢慢就忘了，以至于现在我都想不起来博客放在哪个空间...
+废话不多说，本博客使用jekyll引擎、Github版本控制、textile&markdown语法。最后感谢lzyy~
+
+h3. 写博客的目的
+
+# 记事目的
+# 提高学习能力
+# 提高语言组织能力
+# 好玩
+
+h3. 今日最糟糕代码
+
+下面代码是在人物施放技能时候调用的，目前为止还没有完全搞懂，完全消化并且吸收需要时日。
+
+{% highlight python %}
+for(int i = 0;i<skillPos.length;i++){
+for(int j = 0;j<skillPos[i].length;j++){
+    for(int k = 0;k<skillPos[i][j].length;k++){
+    for(int z = 0;z<skillPos[i][j].length-k-1;z++){
+    int a = skillsList[i][skillPos[i][j][z]].coordy;
+    int b = skillsList[i][skillPos[i][j][z+1]].coordy;
+    if(a>b){
+    byte temp = skillPos[i][j][z];
+    skillPos[i][j][z] = skillPos[i][j][z+1];
+    skillPos[i][j][z+1] = temp;          
+        }
+      }
+    }
+  }
+}
+{% endhighlight %}
