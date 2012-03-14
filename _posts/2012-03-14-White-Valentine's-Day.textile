@@ -1,5 +1,5 @@
 ---
-layout: posts
+layout: post
 title: White Valentine's Day 获得好人卡一张。
 category: life
 ---
