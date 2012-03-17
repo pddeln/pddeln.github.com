@@ -1,137 +1,71 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-		<title>Zackr's Blog</title>
-		<link rel="stylesheet" type="text/css" href="/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="/css/syntax.css" />
-		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/lzyy">
-		<script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  _gaq.push(['_setAccount', 'UA-1281124-20']);
-		  _gaq.push(['_trackPageview']);
+<head>
+	<meta charset="utf-8" />
+	<title>Zackr's Blog</title>
+	<link rel="stylesheet" href="/style.css" />
+	<!–[if IE]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]–>
+	<meta name="google-site-verification" content="5SXzmvZEx4OB63QEq5W0cnFtd2I0XXMaHGTpL_TuzbI" />
+</head>
 
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-	</head>
-
-	<body>
-		<div id="logo"><h1><a href="/">Zackr's Blog</a></h1></div>
-		<div id="wrapper">
-			<div id="content" class="index">
-				<div id="sidebar">
-					<ul>
-						<li>
-							<a href="#">ARTICLES</a>
-							<ul>
-								{% for category in site.categories %}
-								<li><a href="/{{ category[0]  }}.html"> {{ category[0]  }}</a></li>
-								{% endfor %}
-							</ul>
-						</li>
-						<li><a href="/quotes.html">QUOTES</a></li>
-						<li><a href="/projects.html">PROJECTS</a></li>
-						<li><a href="/about.html">ABOUT</a></li>
-						<li><a href="#">RESUME</a></li>
-						<li><a href="/links.html">LINKS</a></li>
-						<li><a href="/contact.html">CONTACT</a></li>
-					</ul>
-				</div>
-				
-				<div id="main">
-				{{ content }}
-				</div>
-
-				<div id="footer">
-					
-					<span style="color:#bbb;font-size:12px">make the world a little better and easier</span>
-					<p style="clear:both"></p>
-				</div>
-
-				<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-
-<script type="text/javascript">
-	jQuery.cookie = function (key, value, options) {
-    
-    // key and at least value given, set cookie...
-    if (arguments.length > 1 && String(value) !== "[object Object]") {
-        options = jQuery.extend({}, options);
-
-        if (value === null || value === undefined) {
-            options.expires = -1;
-        }
-
-        if (typeof options.expires === 'number') {
-            var days = options.expires, t = options.expires = new Date();
-            t.setDate(t.getDate() + days);
-        }
-        
-        value = String(value);
-        
-        return (document.cookie = [
-            encodeURIComponent(key), '=',
-            options.raw ? value : encodeURIComponent(value),
-            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
-            options.path ? '; path=' + options.path : '',
-            options.domain ? '; domain=' + options.domain : '',
-            options.secure ? '; secure' : ''
-        ].join(''));
-    }
-
-    // key and possibly options given, get cookie...
-    options = value || {};
-    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
-    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
-};
-
-if(!$.cookie('badget-twt'))
-{
-	url = 'http://zackr.info/proxy/twt.php';
-	$.getJSON(url+"?callback=?", function(data){
-		f_count = data['followers_count'];
-		$('#twt').find('.info').text(f_count);
-		$.cookie('badget-twt', f_count, {expires: 7} );
-	});
-}
-else
-{
-	$('#twt').find('.info').text($.cookie('badget-twt'));
-}
+<body class="home blog">
+<header id="header">
+	<hgroup>
+		<h1 id="logo"><a href="http://zackr.info/">Zackr's Blog</a></h1>
+		<h2>纪念我汩汩流动的青春</h2>
+	</hgroup>
+</header>
+<div id="wrap">
+	<nav id="menu"><div class="nav"><ul><li class="page_item page-item-2"><a href="#">示例页面</a></li></ul></div>
+</nav>
+	<div id="toolbar">
+		<div id="rss"><a href="#" title="RSS Feed">RSS</a></div>
+		<form id="searchform" method="get" action="#">
+			<input type="text" value="" name="s" id="s" size="30" placeholder="Search" autocomplete="off" required />
+			<button type="submit">Search</button>
+		</form>
+	</div>
+	<div id="content">
 
 
 
-if(!$.cookie('badget-github'))
-{
-	url = 'http://zackr.info/util/proxy/github.php';
-	$.getJSON(url+"?callback=?", function(data){
-		var text = data['user']['public_repo_count'] + ' / ' + data['user']['followers_count'];
-		$('#github').find('.info').text(text);
-		$.cookie('badget-github', text, {expires: 7} );
-	});
-}
-else
-{
-	$('#github').find('.info').text($.cookie('badget-github'));
-}
 
-if(!$.cookie('badget-feedburner'))
-{
-	url = 'http://zackr.info/util/proxy/feedburner.php';
-	$.getJSON(url+"?callback=?", function(data){
-		$('#feedburner').find('.info').text(data['count']);
-		$.cookie('badget-feedburner', data['count'], {expires: 7} );
-	});
-}
-else
-{
-	$('#feedburner').find('.info').text($.cookie('badget-feedburner'));
-}
-</script>
-					
-	</body>
+
+
+<article id="post_list">
+{{ content }}
+</article>
+<nav class="navigation">
+	<span class="alignleft"><?php previous_posts_link(('&laquo; 上一页')) ?></span>
+	<span class="alignright"><?php next_posts_link(('下一页 &raquo;')) ?></span>
+</nav>
+
+
+
+
+
+
+	</div>
+</div>
+<aside id="footer_box">
+<div id="sponsor">
+		<a href="http://faq.wopus.org" target="_blank"><img src="http://10.0.0.103/wp-content/themes/prowerV5/images/faq_side.png" width="250" height="100" alt="日本VPS主机" title="日本VPS主机"></a>
+		<a style="margin:0 20px;" href="http://idc.wopus.org/host/vps/" target="_blank"><img src="http://10.0.0.103/wp-content/themes/prowerV5/images/vps_japan.jpg" width="250" height="100" alt="WordPress问答" title="WordPress问答"></a>
+		<a href="http://reeoo.com" target="_blank"><img src="http://10.0.0.103/wp-content/themes/prowerV5/images/reeoo.jpg" width="250" height="100" alt="精美网页设计欣赏" title="精美网页设计欣赏"></a>
+	</div>
+	<div id="linkcat"><a href="http://codex.wordpress.org/">Documentation</a></li>
+<a href="http://wordpress.org/extend/plugins/">Plugins</a></li>
+<a href="http://wordpress.org/extend/ideas/">Suggest Ideas</a></li>
+<a href="http://wordpress.org/support/">Support Forum</a></li>
+<a href="http://wordpress.org/extend/themes/">Themes</a></li>
+<a href="http://wordpress.org/news/">WordPress Blog</a></li>
+<a href="http://planet.wordpress.org/">WordPress Planet</a></li>
+</div>
+</aside>
+<footer id="footer">
+	<p>&copy; 2012 Zackr&#039;s Blog. Powered by <a href="http://wordpress.org/" target="_blank">WordPress</a>. Theme by <a href="http://www.prower.cn" target="_blank">Prower</a>. Support by <a href="http://faq.wopus.org/tag/prower+v5/" target="_blank">WopusFAQ</a></p>
+</footer>
+</body>
 </html>
-
