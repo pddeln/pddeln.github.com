@@ -1,4 +1,2 @@
 markdown: rdiscount
 pygments: true
-paginate: 5
-paginate_file: index.html

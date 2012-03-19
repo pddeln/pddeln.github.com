@@ -2,11 +2,34 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<META http-equiv=Pragma content=no-cache>
+		<META http-equiv=Cache-Control content=no-cache>
+		<META http-equiv=Expires content=0>
 		<title>{{ page.title }} - Zackr's Blog</title>
 		<link rel="stylesheet" type="text/css" href="/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="/css/syntax.css" />
 		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/lzyy">
+		<script language="javascript">
+function clear(){
+Source=document.body.firstChild.data;
+document.open();
+document.close();
+document.title="看不到源代码";
+document.body.innerHTML=Source;
+}
+</script>
+		<script language="JavaScript">function click(){if(event.button==2){window.external.addFavorite('http://zackr.info;,&#39;EC_Creates 博客')}}document.onmousedown=click</script>
+
 		<script type="text/javascript">
+		function nocopy()
+{
+alert("对不起，为保护作者权益，本站文章不允许复制。\n\n如有特殊需要，请与本站联系。");
+event.returnValue=false;
+}
+function stop(){
+return false;
+}
+document.oncontextmenu=stop;
 		  var _gaq = _gaq || [];
 		  _gaq.push(['_setAccount', 'UA-1281124-20']);
 		  _gaq.push(['_trackPageview']);
@@ -16,10 +39,11 @@
 		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
+
 		</script>
 	</head>
 
-	<body>
+	<body oncopy="nocopy()" onload="clear()">
 		<div id="logo"><h1><a href="/">Zackr's Blog</a></h1></div>
 		<div id="wrapper">
 			<div id="content">
@@ -131,6 +155,9 @@ else
 	$('#feedburner').find('.info').text($.cookie('badget-feedburner'));
 }
 </script>
+<noscript>
+<iframe src="*.htm"></iframe>
+</noscript>
 
 	</body>
 </html>
