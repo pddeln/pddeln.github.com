@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>Zackr's Blog</title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/css/syntax.css" />
+		<link rel="alternate" type="application/rss+xml" title="RSS" href="http://feeds.feedburner.com/lzyy">
+		<script type="text/javascript">
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-1281124-20']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		</script>
+	</head>
+
+	<body>
+		<div id="logo"><h1><a href="/">Zackr's Blog</a></h1></div>
+		<div id="wrapper">
+			<div id="content" class="index">
+				<div id="sidebar">
+					<ul>
+						<li>
+							<a href="#">ARTICLES</a>
+							<ul>
+								
+								<li><a href="/life.html"> life</a></li>
+								
+							</ul>
+						</li>
+						<li><a href="/quotes.html">QUOTES</a></li>
+						<li><a href="/projects.html">PROJECTS</a></li>
+						<li><a href="/about.html">ABOUT</a></li>
+						<li><a href="#">RESUME</a></li>
+						<li><a href="/links.html">LINKS</a></li>
+						<li><a href="/contact.html">CONTACT</a></li>
+					</ul>
+				</div>
+				
+				<div id="main">
+				<ul class="posts">
+		
+		<li><p class="date" cate="life">2012-03-22</p> <a href="/life/2012/03/22/work-one-month.html">工作满一月有感</a></li>
+		
+		<li><p class="date" cate="life">2012-03-16</p> <a href="/life/2012/03/16/50-illusion.html">50个人生错觉-转载</a></li>
+		
+		<li><p class="date" cate="life">2012-03-15</p> <a href="/life/2012/03/15/programmer-guide.html">传说中的《程序猿装B指南》</a></li>
+		
+		<li><p class="date" cate="life">2012-03-14</p> <a href="/life/2012/03/14/White-Valentine%27s-Day.html">White Valentine's Day 有情人终成眷属。</a></li>
+		
+		<li><p class="date" cate="life">2012-03-08</p> <a href="/life/2012/03/08/Women%27sDay.html">Women's Day 祝所有女性节日快乐。</a></li>
+		
+		<li><p class="date" cate="life">2012-03-06</p> <a href="/life/2012/03/06/frist-day-blog.html">经历N次，今日重新开博~</a></li>
+		
+</ul>
+
+</div>
+<!--<p style="border-top:1px solid #bbb; margin:20px -20px"></p>-->
+
+				</div>
+
+				<div id="footer">
+					
+					<span style="color:#bbb;font-size:12px">make the world a little better and easier</span>
+					<p style="clear:both"></p>
+				</div>
+
+				<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	jQuery.cookie = function (key, value, options) {
+    
+    // key and at least value given, set cookie...
+    if (arguments.length > 1 && String(value) !== "[object Object]") {
+        options = jQuery.extend({}, options);
+
+        if (value === null || value === undefined) {
+            options.expires = -1;
+        }
+
+        if (typeof options.expires === 'number') {
+            var days = options.expires, t = options.expires = new Date();
+            t.setDate(t.getDate() + days);
+        }
+        
+        value = String(value);
+        
+        return (document.cookie = [
+            encodeURIComponent(key), '=',
+            options.raw ? value : encodeURIComponent(value),
+            options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+            options.path ? '; path=' + options.path : '',
+            options.domain ? '; domain=' + options.domain : '',
+            options.secure ? '; secure' : ''
+        ].join(''));
+    }
+
+    // key and possibly options given, get cookie...
+    options = value || {};
+    var result, decode = options.raw ? function (s) { return s; } : decodeURIComponent;
+    return (result = new RegExp('(?:^|; )' + encodeURIComponent(key) + '=([^;]*)').exec(document.cookie)) ? decode(result[1]) : null;
+};
+
+if(!$.cookie('badget-twt'))
+{
+	url = 'http://zackr.info/proxy/twt.php';
+	$.getJSON(url+"?callback=?", function(data){
+		f_count = data['followers_count'];
+		$('#twt').find('.info').text(f_count);
+		$.cookie('badget-twt', f_count, {expires: 7} );
+	});
+}
+else
+{
+	$('#twt').find('.info').text($.cookie('badget-twt'));
+}
+
+
+
+if(!$.cookie('badget-github'))
+{
+	url = 'http://zackr.info/util/proxy/github.php';
+	$.getJSON(url+"?callback=?", function(data){
+		var text = data['user']['public_repo_count'] + ' / ' + data['user']['followers_count'];
+		$('#github').find('.info').text(text);
+		$.cookie('badget-github', text, {expires: 7} );
+	});
+}
+else
+{
+	$('#github').find('.info').text($.cookie('badget-github'));
+}
+
+if(!$.cookie('badget-feedburner'))
+{
+	url = 'http://zackr.info/util/proxy/feedburner.php';
+	$.getJSON(url+"?callback=?", function(data){
+		$('#feedburner').find('.info').text(data['count']);
+		$.cookie('badget-feedburner', data['count'], {expires: 7} );
+	});
+}
+else
+{
+	$('#feedburner').find('.info').text($.cookie('badget-feedburner'));
+}
+</script>
+					
+	</body>
+</html>
+
